@@ -1,7 +1,7 @@
 #include <time.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <conio.h>
+
 
 #define TAM 10
 #define MIN 1
