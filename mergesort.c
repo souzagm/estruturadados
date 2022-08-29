@@ -7,6 +7,8 @@
 #define MIN 1
 #define MAX 100
 
+
+//teste
 /* C program for Merge Sort */
 // https://pt.stackoverflow.com/questions/136206/gerar-números-randômicos-que-não-se-repetem
 #include <stdio.h>
