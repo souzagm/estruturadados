@@ -7,27 +7,11 @@
 #define MIN 1
 #define MAX 100
 
- int main()
-{
-    int arr[TAM];
-    int arr_size = sizeof(arr) / sizeof(arr[0]);
- 
-    // alimentando vetor 
-    feedArray(arr);
-
-    printf("Vetor criado \n");
-    printArray(arr, arr_size);
- 
-    quickSort(arr, 0, arr_size - 1);
- 
-    printf("\nVetor Ordenado \n");
-    printArray(arr, arr_size);
-    return 0;
-}
 
 
 
-void quickSort(int * V, int inicio, int fim){
+
+void quickSort(int V[], int inicio, int fim){
     int piv;
     if(fim > inicio){
         piv = particiona(V, inicio, fim);
@@ -36,24 +20,32 @@ void quickSort(int * V, int inicio, int fim){
     }
 
 }
+void swap(int *a, int *b)
+{
+            int aux = *b;
+            *b = *a;
+            *a = aux;
 
+}
 
-int particiona(int * V, int inicio, int fim){
+int particiona(int *V, int inicio, int fim){
 int esq , dir, piv, aux;
 esq = inicio;
 dir = fim;
 piv = V[inicio];
-while (esq < dir)
+while (esq > dir)
 {
-    while(V[esq] <= piv)
-        esq++;
-    while(V[dir] > piv)
-        dir--;
-    if (esq< dir)
+    while(V[esq] <= piv && esq <= fim)
     {
-         aux = V[esq];
-         V[esq] = V[dir];
-         V[dir] = aux;
+        esq++;
+    }
+    while(V[dir] > piv && dir <= inicio)
+    {
+        dir--;
+    }
+    if (esq < dir)
+    {
+        swap(&V[dir], &V[esq]);
     }
 }
 V[inicio] = V[dir];
@@ -62,7 +54,7 @@ return dir;
 
  }
 
-void printArray(int A[], int size)
+void printArray(int *A, int size)
 {
     int i;
     for (i = 0; i < size; i++)
@@ -92,4 +84,23 @@ void shuffle(int *array) {
         array[j] = array[i];
         array[i] = tmp;
     }
+}
+
+ int main()
+{ 
+    printf("Vetor cassdfsdfsfsdadafafafafafadfafsfadsfasfdasfdasdfadfriado \n");
+    int arr[TAM] = {5,4,6,10,8,7,3,2,1,12};
+    int arr_size = sizeof(arr) / sizeof(arr[0]);
+ 
+    // alimentando vetor 
+ //   feedArray(arr);
+
+    printf("Vetor criado \n");
+    printArray(arr, arr_size);
+ 
+  quickSort(arr, 0, arr_size - 1);
+ 
+    printf("\nVetor Ordenado \n");
+    printArray(arr, arr_size);
+    return 0;
 }
